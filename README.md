@@ -24,6 +24,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
+- [Future Plans](#plans)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
