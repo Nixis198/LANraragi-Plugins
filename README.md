@@ -41,7 +41,8 @@ In order to install the plugins go to the homepage of LANraragi click on "Settin
 ## 🎈 Usage <a name="usage"></a>
 
 Once you installed the plugins give the page a refresh so you can see the plugins. All three plugins are under the "Metadata Plugins" tab.
-The only setting for each of the plugins is a toggle for the "Auto-Plugin" setting.
+The main setting for each of the plugins is a toggle for the "Auto-Plugin" setting.
+nHentai Lookup Using Hdoujin does have a "Change Archive Title" setting. What this does is if you have it checked it will change the title of the archive with the title it got from nHentai. If you don't have it checked it will leave the title alone.
 What this means is it will run the plugin if Shinobu detects a new archive.
 You can use all three plugins with the "Batch Tagging", but be warned that the "nHentai Lookup Using Hdoujin" plugin does ping the nHentai servers and you can get IP banned.
 If you want to use this plugin with batch tagging I recommend using a 15-20 second delay between each archive.
@@ -61,7 +62,7 @@ This plugin will use the URL found in the info.txt file in the archive to change
 ## 📝 Future Plans <a name = "plans"></a>
 
 - Give the plugins better names.
-- Add a toggle setting to nHentai Lookup Using Hdoujin where it won't change the name of the archive.
+- Done. ~~Add a toggle setting to nHentai Lookup Using Hdoujin where it won't change the name of the archive.~~
 - Test/add support for other websites.
 ## ✍️ Authors <a name = "authors"></a>
 

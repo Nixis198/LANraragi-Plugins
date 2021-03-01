@@ -28,14 +28,15 @@ sub plugin_info {
         type         => "metadata",
         namespace    => "nhIDlookup",
         author       => "Nixis198",
-        version      => "0.1",
+        version      => "0.2",
         description  => "Uses the URL/ID from the info.txt file to find the tags better than just searching by name.",
         icon         => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5QEEFBkR0sAcMAAAAwpJREFUOMtd1H1oVXUYB/DPOffOuTnn1qZUZArlSqbRitatrP7onyIoooigKAst1CKMagRSFBQR1R/ZCzJhEayI3plFxYoKgkEbNNrKfKWXzRVubVen07z39Md9Bjd//xzuPd/nPM/zffklxfYCXIpt8TyFT/A0phtHB1SfwNdiA+5HK/7Es+jLow2vYQZPYSE2YSpAZf8/Ce7DY3gPwyjgOUzko0uCezARRbPoQk90rz4tMd12mZck4AN8jE15XIVvqz4GQ6jHymJ74fQPnovF+EJC4+iAYnvheNTcnMaKc1ReBmfHg8tGLKlatQl18fvUafwWUZtiDOcjrSJ9UYCa8TByyONB1AR2RWDnz1k4luIrdOK8KsAVweNBXIAVOBPLMInfcBOSqgE68H0eH+KuUPR5nIGH8A5GArwDJRyOjd7CC/gZ3+C2aPZIPrp14WX04QQ+xxuNhcPFIwOtB7LKdCeD62m8j4vCu11huW0Ymh9ZQyk5J6FNlkz6tXVk440HSz3L5pbu3N/QtH6ibmq2ppyUqbnlwuKh6VxmcLh5wdF8eW19OWlKT6a7V3dOjo0vKFdctOTuNjMLS0uVkltRSsvJPwm/45lS4ktp9rbufRPFNQXNnZM1WFXKZ/uz7rYTyYY9VysnV+Yyu5FLcveumldoOzJcHOu9iFexL1bdgkGsQW+Yuw0bg4br0J2GJbbiGNaH4/vDJvVhk9XYHNjWsFN7NHkST4SAvbm0o+WSAD8eCiZYHtYp4++YYB2+DhcUwvCj2BmbNaOc4naMY2Uo/TrujIjtiML5lGwOehqwFr/Ef71htdo8LgsD36FywyyKgv4oODuy+wOuiQmXx7v2iGIWWf5oPstHQpT64KgmJnwgCupjtT5cr3IfLsYufBfifIaj+QA+GpzNhcKvhML/4k1ciz1RtC5iVhdDjEXdEOTSjpZhfBrunwng1ojZbDToCwqm8AduCAq24N2gor/Us3c8l3a0ZKHidJB/CIOlnr3SjhaR1xGV6wwOxPNydOOv4P2n7Mep6f8Ar4T65la7tSMAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAxOToxMToxOSAyMDo0MzowMUTrjeMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDEtMDRUMjA6MjU6MTcrMDA6MDBOQUbVAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTAxLTA0VDIwOjI1OjE3KzAwOjAwPxz+aQAAAABJRU5ErkJggg==",
         #If your plugin uses/needs custom arguments, input their name here. 
         #This name will be displayed in plugin configuration next to an input box for global arguments, and in archive edition for one-shot arguments.
 
         #might add this later
-        #parameters  => [ { type => "bool", desc => "Save archive title" } ]
+        #adding it now
+        parameters  => [ { type => "bool", desc => "Change Archive Title" } ]
     );
 
 }
@@ -47,11 +48,17 @@ sub get_tags {
     
     shift;
     my $lrr_info = shift;    # Global info hash
+    my ($changetitle) = @_;
     my $file   = $lrr_info->{file_path};
     my $url = read_file( $file );
     my $id = get_id( $url );
     my ( $nhtags, $nhtitle ) = get_tags_from_NH( $id );
-    return ( tags => $nhtags, title => $nhtitle );
+    if ($changetitle) {
+        return ( tags => $nhtags, title => $nhtitle );
+    } else {
+        return ( tags => $nhtags );
+    }
+    
 }
 
 sub read_file {
