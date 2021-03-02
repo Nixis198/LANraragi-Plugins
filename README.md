@@ -62,8 +62,9 @@ This plugin will use the URL found in the info.txt file in the archive to change
 ## 📝 Future Plans <a name = "plans"></a>
 
 - Give the plugins better names.
-- Done. ~~Add a toggle setting to nHentai Lookup Using Hdoujin where it won't change the name of the archive.~~
+- Add the ability to open the json file made by Hdoujin.
 - Test/add support for other websites.
+- Done. ~~Add a toggle setting to nHentai Lookup Using Hdoujin where it won't change the name of the archive.~~
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@Nixis198](https://github.com/Nixis198) - Wrote the plugins.
